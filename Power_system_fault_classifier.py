@@ -13,7 +13,7 @@ if page == "模擬實際數據":
     st.title("模擬實際數據(逐時紀錄一星期)")
 
     # Load the CSV data
-    file_path = r'C:\Users\jou\OneDrive\桌面\電力系統故障監控\classData.csv'
+    file_path = 'classData.csv'  # 使用相对路径
     df = pd.read_csv(file_path)
 
     # 設定模擬參數
@@ -82,7 +82,7 @@ elif page == "故障分析":
     st.title("電力系統故障分析")
 
     # Load the CSV data
-    file_path = r'C:\Users\jou\OneDrive\桌面\電力系統故障監控\classData.csv'
+    file_path = 'classData.csv'  # 使用相对路径
     df = pd.read_csv(file_path)
 
     # 設定模擬參數
@@ -122,9 +122,8 @@ elif page == "故障分析":
     # 使用上述模擬數據
     df = df_simulated
 
-    # 模型加載
-    read_file = r'C:\Users\jou\PycharmProjects\pythonCrawler\Electrical_Fault_detection\Electrical_Fault_class_dection\saved_random_forest_model.pkl'
-    with open(read_file, "rb") as f:
+    model_file_path = 'saved_random_forest_model.pkl'  # 使用相对路径
+    with open(model_file_path, "rb") as f:
         model = pickle.load(f)
 
     # 故障類型對應字典
@@ -183,9 +182,9 @@ elif page == "互動式故障預測":
     Vb = st.number_input("輸入 Vb (V)", min_value=-1.0, max_value=1.0, step=0.001)
     Vc = st.number_input("輸入 Vc (V)", min_value=-1.0, max_value=1.0, step=0.001)
 
-    # 加載隨機森林模型
-    read_file = r'C:\Users\jou\PycharmProjects\pythonCrawler\Electrical_Fault_detection\Electrical_Fault_class_dection\saved_random_forest_model.pkl'
-    with open(read_file, "rb") as f:
+ # 加載隨機森林模型
+    model_file_path = 'saved_random_forest_model.pkl'  # 使用相对路径
+    with open(model_file_path, "rb") as f:
         model = pickle.load(f)
 
     # 故障類型對應字典
